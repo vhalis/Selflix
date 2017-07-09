@@ -4,5 +4,5 @@ import AddNew from '../src/components/AddNew.jsx';
 import { storiesOf } from '@storybook/react';
 
 storiesOf('AddNew', module)
-  .add('with text', () => <AddNew name="Text"></AddNew>)
-  .add('without text', () => <AddNew></AddNew>);
+  .add('Test A', () => <AddNew name="A"></AddNew>)
+  .add('Test B', () => <AddNew name="B"></AddNew>);

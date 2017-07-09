@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import { Icon, Button, Card } from 'semantic-ui-react';
+import { Icon, Button } from 'semantic-ui-react';
+
+import  './AddNew.css';
 
 class AddNew extends Component {
+    // This class should be a floating "add new movie" button
+    // in the right bottom corner of screen
 
     constructor(props) {
         super(props);
@@ -10,9 +14,8 @@ class AddNew extends Component {
 
     render() { 
         return (
-        <div>
-            <Button icon="plus" />
-            <Card>Lorem ipsum</Card>
+        <div className="float">
+            <Button circular color='teal' icon='plus' />
         </div>
         );
     }

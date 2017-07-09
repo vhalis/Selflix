@@ -1,4 +1,20 @@
+@font-face {
+    font-family: HeaderFont;
+    src: url('./Header.ttf');
+}
+
 .header {
-    width: 100%;
-    border: 5px solid red;
+    display: flex;
+}
+
+.headertext {
+    font-family: 'HeaderFont';
+    font-size: 4em;
+    color: teal;
+    flex: 0 0 65%;
+}
+
+.sortmenu {
+    background-color: teal;
+    flex: 1;
 }
