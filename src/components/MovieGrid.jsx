@@ -22,9 +22,7 @@ class MovieGrid extends React.Component {
         );
         movieTiles.unshift(<AddNewTile />);
         return (
-            <Card.Group>
-                {movieTiles}
-            </Card.Group>
+            <Card.Group>{movieTiles}</Card.Group>
         );
     }
 }

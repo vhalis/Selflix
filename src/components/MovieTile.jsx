@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 
+import './MovieTile.css';
 
 class MovieTile extends React.Component {
 
@@ -9,13 +10,15 @@ class MovieTile extends React.Component {
         movieActors: PropTypes.arrayOf(PropTypes.string),
         movieDescription: PropTypes.string,
         movieGenre: PropTypes.string,
+        movieImage: PropTypes.string,
         movieReleaseDate: PropTypes.string,
         movieTitle: PropTypes.string,
     }
 
     render() {
         return (
-            <Card raised>
+            <Card color='teal' link>
+                <Image src={this.props.movieImage} />
                 <Card.Content>
                     <Card.Header>
                         {this.props.movieTitle}
@@ -26,8 +29,13 @@ class MovieTile extends React.Component {
                         </span>
                     </Card.Meta>
                     <Card.Description>
-                        {this.props.movieDescription}
+                        <div className="textblock">
+                            {this.props.movieDescription}
+                        </div>
                     </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                    Lorem ipsum dolor sit amet
                 </Card.Content>
             </Card>
         );

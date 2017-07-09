@@ -1,0 +1,9 @@
+.totallycentered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftpadding {
+    padding-left: 5px;
+}

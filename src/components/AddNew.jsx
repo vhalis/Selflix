@@ -14,7 +14,7 @@ class AddNew extends Component {
 
     render() { 
         return (
-            <div className="float">
+            <div className="floatbottomright">
                 <Button circular color='teal' icon='plus' />
             </div>
         );
