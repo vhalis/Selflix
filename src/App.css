@@ -1,24 +1,39 @@
-.App {
-  text-align: center;
+@font-face {
+    font-family: HeaderFont;
+    src: url('./fonts/Header.ttf');
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.headerwrapper {
+    width: 100%;
+    position: fixed;
+    top: 0px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+#headertext {
+    font-family: 'HeaderFont';
+    font-size: 4em;
+    color: #00B5AD;
+
+    padding: 18px;
+
+    display: block;
+    float: left;
+    width: 40%;
+    height: 50px;
 }
 
-.App-intro {
-  font-size: large;
+#sortmenu {
+    padding: 10px;
+    
+    display: block;
+    float: left;
+    width: 60%;
+    height: 50px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@media screen and (max-width: 600px) {
+    #headertext, #sortmenu {
+        width: 100%;
+        text-align: center;
+    }
 }

@@ -37,9 +37,6 @@ export default class MovieGrid extends React.Component {
         );
         movieTiles.unshift(<AddNewTile key='addnew' onClick={this.doModalOpen}/>);
         return (
-<<<<<<< HEAD
-            <Card.Group>{movieTiles}</Card.Group>
-=======
             <div>
                 <Card.Group className="stackable grid">
                     {movieTiles}
@@ -50,7 +47,6 @@ export default class MovieGrid extends React.Component {
                     modalOpen={modalOpen}
                     />
             </div>
->>>>>>> 92db78f84f2c001768e273c7e862d21fffb96efe
         );
     }
 }

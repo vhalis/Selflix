@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Header from './components/Header.jsx';
+import { Container } from 'semantic-ui-react';
 import MovieGrid from './components/MovieGrid.jsx';
-
+import SortBy from './components/SortBy.jsx';
 
 export default class App extends Component {
   render() {
     return (
-      <div>
-        <Header />
-        <MovieGrid />
-<<<<<<< HEAD
-        <AddNew />
-=======
->>>>>>> 92db78f84f2c001768e273c7e862d21fffb96efe
+      <Container>
+      <div className='headerwrapper'>
+        <div id='headertext'>SELFLIX</div>
+        <div id='sortmenu'><SortBy /></div>
       </div>
+      </Container>
     );
   }
 }
