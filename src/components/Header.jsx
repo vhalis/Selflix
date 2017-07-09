@@ -10,7 +10,7 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div className='header'>
+            <div className='headerwrapper'>
                 <div id='headertext'>SELFLIX</div>
                 <div id='sortmenu'><SortBy /></div>
             </div>

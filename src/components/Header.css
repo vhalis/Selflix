@@ -1,9 +1,9 @@
 @font-face {
     font-family: HeaderFont;
-    src: url('./Header.ttf');
+    src: url('../fonts/Header.ttf');
 }
 
-.header {
+.headerwrapper {
     width: 100%;
     position: fixed;
     top: 0px;
