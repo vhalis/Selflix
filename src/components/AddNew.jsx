@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Icon, Button, Card } from 'semantic-ui-react';
 
-
-class AddNew extends React.Component {
+class AddNew extends Component {
 
     constructor(props) {
         super(props);
         // Do something with a callback to create new?
     }
 
-    render() {
-        return <div>Hello {this.props.name}</div>;
+    render() { 
+        return (
+        <div>
+            <Button icon="plus" />
+            <Card>Lorem ipsum</Card>
+        </div>
+        );
     }
 }
 
