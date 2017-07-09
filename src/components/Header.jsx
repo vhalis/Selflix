@@ -1,6 +1,6 @@
 import React from 'react';
 
-import  '../css/Header.css';
+import  './Header.css';
 
 class Header extends React.Component {
     // This class should be a floating title bar
