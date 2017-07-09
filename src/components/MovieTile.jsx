@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Card } from 'semantic-ui-react';
 
 
@@ -16,7 +15,7 @@ class MovieTile extends React.Component {
 
     render() {
         return (
-            <Card>
+            <Card raised>
                 <Card.Content>
                     <Card.Header>
                         {this.props.movieTitle}
