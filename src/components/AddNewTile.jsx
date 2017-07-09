@@ -11,7 +11,7 @@ class AddNewTile extends React.Component {
                 <Card.Content className="totallycentered">
                     <Icon.Group size='big'>
                         <Icon circular inverted name='film' color='teal'/>
-                        <Icon corner name='add'/>
+                        <Icon corner name='add' color='teal' />
                     </Icon.Group>
                     <Card.Header className="leftpadding">Add New Movie</Card.Header>
                 </Card.Content>
