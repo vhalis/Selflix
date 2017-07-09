@@ -8,11 +8,16 @@ import SortBy from './components/SortBy.jsx';
 export default class App extends Component {
   render() {
     return (
-      <Container>
-      <div className='headerwrapper'>
-        <div id='headertext'>SELFLIX</div>
-        <div id='sortmenu'><SortBy /></div>
-      </div>
+      <Container fluid>
+        <Container fluid>
+          <div className='headerwrapper'>
+            <div id='headertext'>SELFLIX</div>
+            <div id='sortmenu'><SortBy /></div>
+          </div>
+        </Container>
+        <Container fluid>
+          <MovieGrid />
+        </Container>
       </Container>
     );
   }
