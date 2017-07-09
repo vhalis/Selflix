@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Card } from 'semantic-ui-react';
 
-import AddNew from './AddNew.jsx';
+import AddNewButton from './AddNewButton.jsx';
 import AddNewTile from './AddNewTile.jsx';
 import MovieModal from './MovieModal.jsx';
 import MovieTile from './MovieTile.jsx';
@@ -44,7 +44,7 @@ export default class MovieGrid extends React.Component {
                 <Card.Group className="stackable grid">
                     {movieTiles}
                 </Card.Group>
-                <AddNew onClick={this.doModalOpen} />
+                <AddNewButton onClick={this.doModalOpen} />
                 <MovieModal
                     onClose={this.doModalClose}
                     modalOpen={modalOpen}
