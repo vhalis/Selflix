@@ -5,7 +5,7 @@ import { Icon, Modal } from 'semantic-ui-react';
 import MovieTile from './MovieTile.jsx';
 
 
-export default class MovieModal extends React.Component {
+export default class AddMovieModal extends React.Component {
 
     static propTypes = {
         movieData: PropTypes.objectOf(MovieTile.propTypes),

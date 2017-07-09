@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MovieGrid from '../src/components/MovieGrid.jsx';
 
+import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 
 const defaultProps = [
@@ -35,5 +36,8 @@ const defaultProps = [
 ];
 
 storiesOf('MovieGrid', module)
-  .add('with movies', () => <MovieGrid movies={defaultProps}></MovieGrid>)
-  .add('without movies', () => <MovieGrid></MovieGrid>);
+  .add('with movies', () => 
+    <MovieGrid
+        movies={defaultProps}
+        onAddNewMovieClick={action('clicked')} />)
+  .add('without movies', () => <MovieGrid onAddNewMovieClick={action('clicked')} />);
