@@ -56,16 +56,16 @@ export default class App extends React.Component {
   }
 
   loadMovies () {
-    const storedMovieCount = localStorage.getItem(MOVIE_COUNT_KEY);
-    if (storedMovieCount) {
+    const movieCount = parseInt(localStorage.getItem(MOVIE_COUNT_KEY), 10);
+    if (movieCount) {
       var movieList = [];
       var curMovie = 0;
-      while (curMovie < storedMovieCount) {
+      while (curMovie < movieCount) {
         movieList.push(this.loadMovie(curMovie++));
       }
       this.setState({
         movieList: movieList,
-        numberOfMovies: storedMovieCount,
+        numberOfMovies: movieCount,
       });
     }
   }
