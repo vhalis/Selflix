@@ -22,9 +22,9 @@ export default class MovieGrid extends React.Component {
         );
         movieTiles.unshift(<AddNewTile key='addnew' onClick={this.props.onAddNewMovieClick}/>);
         return (
-            <Card.Group stackable>
+            <div class="gridwrapper">
                 {movieTiles}
-            </Card.Group>
+            </div>
         );
     }
 }

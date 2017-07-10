@@ -41,7 +41,8 @@ export default class MovieTile extends React.Component {
         const bodyContentClass = hideBody ? "contenthider" : "";
 
         return (
-            <Card color='teal' link onClick={this.onCardClick}>
+            <div className="gridcontent">
+            <Card color='teal' link fluid onClick={this.onCardClick}>
                 <div className="thumbnailer">
                     <Image src={this.props.movieImage} width="100%" />
                 </div>
@@ -62,6 +63,7 @@ export default class MovieTile extends React.Component {
                 Lorem ipsum dolor sit amet
                 </Card.Content>
             </Card>
+            </div>
         );
     }
 }
