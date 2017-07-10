@@ -39,23 +39,23 @@ export default class MovieGrid extends React.Component {
     render () {
         const { clickedMovie } = this.state;
 
+
         var movieTiles = this.props.movies.map((movieData, id) =>
-            <MovieTile
-                key={id}
-                hideBody={id !== clickedMovie}
-                onClick={() => this.onMovieTileClick(id)}
-                {...movieData} />
+            <div className={id === clickedMovie ? "selected" : "gridcontent"}>
+                <MovieTile
+                    key={id}
+                    hideBody={id !== clickedMovie}
+                    onClick={() => this.onMovieTileClick(id)}
+                    {...movieData} />
+            </div>
         );
         movieTiles.unshift(
-            <AddNewTile
-                key='addnew'
-                onClick={this.props.onAddNewMovieClick} />
-        );
-        movieTiles = movieTiles.map((tile, i) => (
-            <div key={i} className="gridcontent">
-                {tile}
+            <div className="gridcontent">
+                <AddNewTile
+                    key='addnew'
+                    onClick={this.props.onAddNewMovieClick} />
             </div>
-        ));
+        );
 
         return (
             <div className="gridwrapper">

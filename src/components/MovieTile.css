@@ -1,26 +1,29 @@
 .thumbnailer {
-    height: 250px;
+    height: 200px;
     overflow: hidden;
 }
 
 .thumbnailer img {
-    position: absolute;
+    position: fixed;
     top: -50%;
-}
-
-.contenthider {
-    display: none;
 }
 
 .ui.card {
     height: 350px;
 }
 
-.selected {
-    width: 80%;
-    margin: 5px auto;
+@media screen and (max-width: 500px) {
+    .ui.card {
+        height: auto;
+    }
 }
 
-.selected .ui.card {
-    height: 100%;
+.textcutoff {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contenthider {
+    display: none;
 }

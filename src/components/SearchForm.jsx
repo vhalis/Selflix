@@ -17,7 +17,6 @@ class SearchForm extends React.Component {
                 icon='search'
                 iconPosition='left'
                 placeholder='Search...'
-                color='teal'
                 fluid
             />
         );

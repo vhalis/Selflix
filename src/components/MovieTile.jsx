@@ -47,12 +47,13 @@ export default class MovieTile extends React.Component {
                     </Card.Meta>
                 </Card.Content>
                 <Card.Content className={bodyContentClass}>
-                    <p>{this.props.movieDescription}</p>
-                    <p><strong>Actors:</strong> {actorList || "Not available"}</p>
-                    <p><strong>Genres:</strong> {genreList || "Not available"}</p>
+                    <Card.Description>
+                        <p>{this.props.movieDescription}</p>
+                        <p><strong>Actors:</strong> {actorList || "Not available"}</p>
+                    </Card.Description>
                 </Card.Content>
-                <Card.Content extra>
-                Lorem ipsum dolor sit amet
+                <Card.Content extra className="textcutoff">
+                    <strong>Genres:</strong> {genreList || "Not available"}
                 </Card.Content>
             </Card>
             </div>

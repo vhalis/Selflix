@@ -1,19 +1,11 @@
 .sortmenu {
-    position: relative;
-    top: 50px;
     margin: 10px auto;
-    padding: 0px 10px;
+    padding: 10px 10px;
     width: 100%;
-    min-width: 450px;
+    min-width: 440px;
 }
-
-.ui.menu {
+.sortmenu .ui.menu {
     box-shadow: none;
     -webkit-box-shadow: none;
-}
-
-@media screen and (max-width: 500px) {
-    .sortmenu {
-        top: 100px;
-    }
+    min-width: 440px;
 }

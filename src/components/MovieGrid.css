@@ -1,9 +1,10 @@
 .gridwrapper {
     position: relative;
-    top: 50px;
+    top: 100px;
     padding: 5px 10px;
     width: 100%;
-    min-width: 450px;
+    min-width: 462px;
+    margin: 10px auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,14 +15,25 @@
     width: 24%;
     margin: 5px;
     min-width: 220px;
+    transition: all 0.5s;
+}
+
+.selected {
+    width: 100%;
+    margin: 10px auto;
+    transition: all 0.5s;
+}
+
+.selected .ui.card {
+    height: 100%;
 }
 
 @media screen and (max-width: 500px) {
-    .gridwrapper {
-        top: 100px;
-    }
-
     .gridcontent {
         width: 100%;
+    }
+    .gridwrapper{
+        position: relative;
+        top: 153px;
     }
 }

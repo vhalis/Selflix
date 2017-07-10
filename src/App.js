@@ -175,18 +175,18 @@ export default class App extends React.Component {
 
     return (
       <div className="mainbody">
-        <div className="headerwrapper">
-          <div className="headerleft">SELFLIX</div>
-          <div className="headerright"><SearchForm /></div>
-        </div>
-        <SortBy 
-          activeOrder={sortOrder} 
-          activeType={sortType}
-          onChangeOrderBy={this.onChangeOrderBy}
-          onChangeSortType={this.onChangeSortType} />
         <MovieGrid
           onAddNewMovieClick={this.doModalOpen}
           movies={movieList} />
+        <div className="floattopcentre">
+          <div className="headerleft">SELFLIX</div>
+          <div className="headerright"><SearchForm /></div>
+          <SortBy 
+            activeOrder={sortOrder} 
+            activeType={sortType}
+            onChangeOrderBy={this.onChangeOrderBy}
+            onChangeSortType={this.onChangeSortType} />
+        </div>
         <AddNewButton onClick={this.doModalOpen} />
         <AddMovieModal
           createNewMovie={this.createNewMovie}

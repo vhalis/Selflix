@@ -18,6 +18,7 @@ export default class AddNewButton extends React.Component {
                     circular
                     color='teal'
                     icon='plus'
+                    size='huge'
                     onClick={this.props.onClick}
                     />
             </div>
