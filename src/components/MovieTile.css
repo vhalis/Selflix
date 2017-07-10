@@ -1,4 +1,5 @@
 .overflowingtextblock {
+    flex-basis: 50px;
     height: 3em;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -12,4 +13,9 @@
 .thumbnailer img {
     position: absolute;
     top: -50%;
+}
+
+.contenthider {
+    display:none;
+    transition: all 1s;
 }

@@ -38,13 +38,11 @@ export default class MovieTile extends React.Component {
                 <Card.Meta>
                     {this.props.movieReleaseDate}
                 </Card.Meta>
-                <Card.Description>
-                <div className="overflowingtextblock">
+                </Card.Content>
+                <Card.Content className="contenthider">
                     <p>{this.props.movieDescription}</p>
                     <p><strong>Actors:</strong> {actorList || "Not available"}</p>                           
                     <p><strong>Genres:</strong> {genreList || "Not available"}</p>     
-                </div>
-                </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
                 Lorem ipsum dolor sit amet
