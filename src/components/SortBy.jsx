@@ -1,21 +1,38 @@
 import React from 'react';
-import { Dropdown, Menu } from 'semantic-ui-react';
+import { Menu, Icon } from 'semantic-ui-react';
 
-const options = [
-    {key: 1, text:'Title'},
-    {key: 2, text:'Genre'},
-    {key: 3, text:'Release Date'}
-];
+import './SortBy.css';
 
 class SortBy extends React.Component {
 
+    state = { 
+        activeType: 'title',
+        activeOrder: 'ascending',
+    }
+
+    handleTypeClick = (e, { name }) => this.setState({ activeType: name })
+    handleOrderClick = (e, { name }) => this.setState({ activeOrder: name })
+
     render() { 
+        const { activeType, activeOrder } = this.state;
+
         return (
-        <Menu color='teal' fluid>
-            <Dropdown text='Sort by...' options={options} simple item />
-            <Menu.Item icon='sort alphabet ascending' />
-            <Menu.Item icon='sort alphabet descending' />
-        </Menu>
+            <div className="sortmenu">
+                <Menu color='teal' secondary fluid>
+                    <Menu.Item header>SORT BY</Menu.Item>
+                    <Menu.Item name='title' active={activeType === 'title'} onClick={this.handleTypeClick} />
+                    <Menu.Item name='genre' active={activeType === 'genre'} onClick={this.handleTypeClick} />
+                    <Menu.Item name='releaseDate' active={activeType === 'releaseDate'} onClick={this.handleTypeClick} />
+                    <Menu.Menu position='right'>
+                        <Menu.Item name='ascending' active={activeOrder === 'ascending'} onClick={this.handleOrderClick}>
+                            <Icon name='sort alphabet ascending' />
+                        </Menu.Item>
+                        <Menu.Item name='descending' active={activeOrder === 'descending'} onClick={this.handleOrderClick}>
+                            <Icon name='sort alphabet descending' />
+                        </Menu.Item>
+                    </Menu.Menu>
+                </Menu>
+            </div>
         );
     }
 

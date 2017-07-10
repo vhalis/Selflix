@@ -93,7 +93,7 @@ export default class App extends React.Component {
           <div className="headerleft">SELFLIX</div>
           <div className="headerright"><SearchForm /></div>
         </div>
-        <div className="sortmenu"><SortBy /></div>
+        <SortBy />
         <MovieGrid
           onAddNewMovieClick={this.doModalOpen}
           movies={movieList} />
