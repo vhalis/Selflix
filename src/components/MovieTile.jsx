@@ -4,7 +4,7 @@ import { Card, Image } from 'semantic-ui-react';
 
 import './MovieTile.css';
 
-class MovieTile extends React.Component {
+export default class MovieTile extends React.Component {
 
     static propTypes = {
         movieActors: PropTypes.arrayOf(PropTypes.string),
@@ -41,5 +41,3 @@ class MovieTile extends React.Component {
         );
     }
 }
-
-export default MovieTile;
