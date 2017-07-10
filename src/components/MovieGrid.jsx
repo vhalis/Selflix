@@ -56,9 +56,8 @@ export default class MovieGrid extends React.Component {
                 );
             } else {
                 return (
-                    <div className="gridcontent">
+                    <div key={id} className="gridcontent">
                         <MovieTile
-                            key={id}
                             onClick={() => this.onMovieTileClick(id)}
                             {...movieData} />
                     </div>

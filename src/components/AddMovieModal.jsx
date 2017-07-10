@@ -1,6 +1,66 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form, Icon, Modal } from 'semantic-ui-react';
+import { Dropdown, Form, Icon, Modal } from 'semantic-ui-react';
+
+
+const movieSuggestions = [
+    {
+        movieActors: "Tim Robbins, Morgan Freeman, Bob Gunton",
+        movieDescription: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+        movieGenres: "Crime, Drama",
+        movieImage: "https://images-na.ssl-images-amazon.com/images/M/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_SY1000_CR0,0,672,1000_AL_.jpg",
+        movieReleaseDate: "1994",
+        movieTitle: "The Shawshank Redemption",
+    },
+    {
+        movieActors: " Marlon Brando, Al Pacino, James Caan",
+        movieDescription: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+        movieGenres: "Crime, Drama",
+        movieImage: "https://images-na.ssl-images-amazon.com/images/M/MV5BZTRmNjQ1ZDYtNDgzMy00OGE0LWE4N2YtNTkzNWQ5ZDhlNGJmL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,704,1000_AL_.jpg",
+        movieReleaseDate: "1972",
+        movieTitle: "The Godfather",
+    },
+    {
+        movieActors: " Al Pacino, Robert De Niro, Robert Duvall",
+        movieDescription: "The early life and career of Vito Corleone in 1920s New York is portrayed while his son, Michael, expands and tightens his grip on the family crime syndicate.",
+        movieGenres: "Crime, Drama",
+        movieImage: "https://images-na.ssl-images-amazon.com/images/M/MV5BMjZiNzIxNTQtNDc5Zi00YWY1LThkMTctMDgzYjY4YjI1YmQyL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,702,1000_AL_.jpg",
+        movieReleaseDate: "1974",
+        movieTitle: "The Godfather: Part II",
+    },
+    {
+        movieActors: " Christian Bale, Heath Ledger, Aaron Eckhart ",
+        movieDescription: "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham, the Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+        movieGenres: "Action, Crime, Drama, Thriller",
+        movieImage: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
+        movieReleaseDate: "2008",
+        movieTitle: "The Dark Knight",
+    },
+    {
+        movieActors: " Henry Fonda, Lee J. Cobb, Martin Balsam",
+        movieDescription: "A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.",
+        movieGenres: "Crime, Drama",
+        movieImage: "https://images-na.ssl-images-amazon.com/images/M/MV5BODQwOTc5MDM2N15BMl5BanBnXkFtZTcwODQxNTEzNA@@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
+        movieReleaseDate: "1957",
+        movieTitle: "12 Angry Men",
+    },
+    {
+        movieActors: " Liam Neeson, Ralph Fiennes, Ben Kingsley",
+        movieDescription: "In German-occupied Poland during World War II, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazi Germans.",
+        movieGenres: "Biography, Drama, History",
+        movieImage: "https://images-na.ssl-images-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,666,1000_AL_.jpg",
+        movieReleaseDate: "1993",
+        movieTitle: "Schindler's List",
+    },
+    {
+        movieActors: " John Travolta, Uma Thurman, Samuel L. Jackson",
+        movieDescription: "The lives of two mob hit men, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+        movieGenres: "Crime, Drama",
+        movieImage: "https://images-na.ssl-images-amazon.com/images/M/MV5BMTkxMTA5OTAzMl5BMl5BanBnXkFtZTgwNjA5MDc3NjE@._V1_SY1000_CR0,0,673,1000_AL_.jpg",
+        movieReleaseDate: "1994",
+        movieTitle: "Pulp Fiction",
+    },
+]
 
 
 export default class AddMovieModal extends React.Component {
@@ -22,6 +82,10 @@ export default class AddMovieModal extends React.Component {
         movieImage: "",
         movieReleaseDate: "",
         movieTitle: "",
+    }
+
+    setDummyDataToState = (e, {value}) => {
+        this.setState({...movieSuggestions[value]});
     }
 
     clearState = () => {
@@ -83,6 +147,45 @@ export default class AddMovieModal extends React.Component {
             movieTitle,
         } = this.state;
 
+
+        const dropdownOptions = [
+            {
+                text: '1',
+                value: 1,
+            },
+            {
+                text: '2',
+                value: 2,
+            },
+            {
+                text: '3',
+                value: 3,
+            },
+            {
+                text: '4',
+                value: 4,
+            },
+            {
+                text: '5',
+                value: 5,
+            },
+            {
+                text: '6',
+                value: 6,
+            },
+            {
+                text: '7',
+                value: 7,
+            }
+        ];
+        const populateDropdown = (
+            <Dropdown
+                placeholder='Select dummy movie'
+                selection
+                options={dropdownOptions}
+                onChange={this.setDummyDataToState} />
+        );
+
         const closeButton = (
             <Icon
                 circular
@@ -97,7 +200,7 @@ export default class AddMovieModal extends React.Component {
                 open={modalOpen}
                 dimmer='blurring'
                 >
-                <Modal.Header>Add a New Movie</Modal.Header>
+                <Modal.Header>Add a New Movie {populateDropdown}</Modal.Header>
                 <Modal.Content>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Input
@@ -137,7 +240,7 @@ export default class AddMovieModal extends React.Component {
                         <Form.Group>
                             <Form.Button color='teal' content='Create' />
                             <Form.Button
-                                color='negative'
+                                color='red'
                                 content='Cancel'
                                 onClick={this.closeModal}/>
                         </Form.Group>
