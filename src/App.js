@@ -238,7 +238,7 @@ export default class App extends React.Component {
     return (
       <div className="mainbody">
         <div className="floattopcentre">
-          <div className="headerleft"><a href="#">SELFLIX</a></div>
+          <div className="headerleft"><a href="">SELFLIX</a></div>
           <div className="headerright">
             <SearchForm
               onSearchFieldChange={this.onSearchFieldChange}

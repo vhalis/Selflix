@@ -153,6 +153,7 @@ export default class AddMovieModal extends React.Component {
         })
         const suggestionsDropdown = (
             <Dropdown
+                fluid
                 selection
                 onChange={this.setDummyDataToState}
                 options={suggestionsOptions}
@@ -169,9 +170,9 @@ export default class AddMovieModal extends React.Component {
         );
         return (
             <Modal
+                dimmer='blurring'
                 closeIcon={closeButton}
                 open={modalOpen}
-                dimmer='blurring'
                 >
                 <Modal.Header>
                     <Grid columns={2} verticalAlign='middle'>

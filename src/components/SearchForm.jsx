@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Input, Dropdown } from 'semantic-ui-react';
 
-
 const options = [
     { key: 'title', text: 'by Title', value: 'title' },
     { key: 'genre', text: 'by Genre', value: 'genre' },
