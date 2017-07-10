@@ -15,16 +15,29 @@ export default class AddMovieModal extends React.Component {
         modalOpen: false,
     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
+    state = {
+        movieActors: "",
+        movieDescription: "",
+        movieGenres: "",
+        movieImage: "",
+        movieReleaseDate: "",
+        movieTitle: "",
+    }
+
+    clearState = () => {
+        this.setState({
             movieActors: "",
             movieDescription: "",
             movieGenres: "",
             movieImage: "",
             movieReleaseDate: "",
             movieTitle: "",
-        };
+        });
+    }
+
+    closeModal = () => {
+        this.clearState();
+        this.props.onClose();
     }
 
     handleChange = (e, {name, value}) => this.setState({ [name]: value })
@@ -56,10 +69,11 @@ export default class AddMovieModal extends React.Component {
             movieReleaseDate: movieReleaseDate,
             movieTitle: movieTitle,
         });
+        this.closeModal();
     }
 
     render() {
-        const { modalOpen, onClose } = this.props;
+        const { modalOpen } = this.props;
         const {
             movieActors,
             movieDescription,
@@ -70,7 +84,12 @@ export default class AddMovieModal extends React.Component {
         } = this.state;
 
         const closeButton = (
-            <Icon circular inverted color='teal' name='close' onClick={onClose} />
+            <Icon
+                circular
+                inverted
+                color='teal'
+                name='close'
+                onClick={this.closeModal} />
         );
         return (
             <Modal
@@ -104,7 +123,6 @@ export default class AddMovieModal extends React.Component {
                             placeholder='Separate with commas'
                             value={movieActors} />
                         <Form.TextArea
-                            control='textarea'
                             label='Description'
                             name='movieDescription'
                             onChange={this.handleChange}
@@ -115,7 +133,13 @@ export default class AddMovieModal extends React.Component {
                             name='movieImage'
                             onChange={this.handleChange}
                             value={movieImage} />
-                        <Form.Button color='teal' content='Create' />
+                        <Form.Group>
+                            <Form.Button color='teal' content='Create' />
+                            <Form.Button
+                                color='negative'
+                                content='Cancel'
+                                onClick={this.closeModal}/>
+                        </Form.Group>
                     </Form>
                 </Modal.Content>
             </Modal>

@@ -19,11 +19,8 @@ export default class MovieGrid extends React.Component {
         movies: [],
     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            clickedMovie: -1,
-        }
+    state = {
+        clickedMovie: -1,
     }
 
     onMovieTileClick = (id) => {
