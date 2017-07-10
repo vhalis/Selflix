@@ -19,30 +19,44 @@ export default class MovieTile extends React.Component {
         movieActors: [],
         movieGenres: [],
     }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            hideBody: true,
+        };
+    }
     
+    onCardClick = (e) => {
+        this.setState((prevState) => ({
+            hideBody: !prevState.hideBody,
+        }));
+    }
 
     render() {
 
+        const { hideBody } = this.state;
         const actorList = this.props.movieActors.join(", ");
         const genreList = this.props.movieGenres.join(", ");
+        const bodyContentClass = hideBody ? "contenthider" : "";
 
         return (
-            <Card color='teal' link >
+            <Card color='teal' link onClick={this.onCardClick}>
                 <div className="thumbnailer">
                     <Image src={this.props.movieImage} width="100%" />
                 </div>
                 <Card.Content>
-                <Card.Header>
-                    {this.props.movieTitle}
-                </Card.Header>
-                <Card.Meta>
-                    {this.props.movieReleaseDate}
-                </Card.Meta>
+                    <Card.Header>
+                        {this.props.movieTitle}
+                    </Card.Header>
+                    <Card.Meta>
+                        {this.props.movieReleaseDate}
+                    </Card.Meta>
                 </Card.Content>
-                <Card.Content className="contenthider">
+                <Card.Content className={bodyContentClass}>
                     <p>{this.props.movieDescription}</p>
-                    <p><strong>Actors:</strong> {actorList || "Not available"}</p>                           
-                    <p><strong>Genres:</strong> {genreList || "Not available"}</p>     
+                    <p><strong>Actors:</strong> {actorList || "Not available"}</p>
+                    <p><strong>Genres:</strong> {genreList || "Not available"}</p>
                 </Card.Content>
                 <Card.Content extra>
                 Lorem ipsum dolor sit amet
