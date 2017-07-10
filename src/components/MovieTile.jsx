@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image, Grid } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 
 import './MovieTile.css';
 

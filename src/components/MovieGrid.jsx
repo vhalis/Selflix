@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Grid, Container } from 'semantic-ui-react';
 
 import AddNewTile from './AddNewTile.jsx';
 import MovieTile from './MovieTile.jsx';
 
 import './MovieGrid.css';
+
 
 export default class MovieGrid extends React.Component {
 

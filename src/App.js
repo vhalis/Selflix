@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Container } from 'semantic-ui-react';
+import React from 'react';
 
 import './App.css';
 
@@ -10,7 +9,7 @@ import SortBy from './components/SortBy.jsx';
 import SearchForm from './components/SearchForm.jsx';
 
 
-export default class App extends Component {
+export default class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -71,5 +70,3 @@ export default class App extends Component {
     );
   }
 }
-
-// 
