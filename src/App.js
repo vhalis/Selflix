@@ -241,7 +241,7 @@ export default class App extends React.Component {
           onAddNewMovieClick={this.doModalOpen}
           movies={movieList} />
         <div className="floattopcentre">
-          <div className="headerleft">SELFLIX</div>
+          <div className="headerleft"><a href="#">SELFLIX</a></div>
           <div className="headerright">
             <SearchForm
               onSearchFieldChange={this.onSearchFieldChange}

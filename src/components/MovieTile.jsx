@@ -44,7 +44,6 @@ export default class MovieTile extends React.Component {
                     <strong>Genres:</strong> {genreList || "Not available"}
                 </Card.Content>
             </Card>
-            </div>
         );
     }
 }
