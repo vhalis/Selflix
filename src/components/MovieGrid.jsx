@@ -50,6 +50,7 @@ export default class MovieGrid extends React.Component {
             if (id === clickedMovie) {
                 return (
                     <MovieModal 
+                        key={id}
                         onClose={() => this.onMovieTileClick(id)}
                         {...movieData} />
                 );
@@ -58,7 +59,6 @@ export default class MovieGrid extends React.Component {
                     <div className="gridcontent">
                         <MovieTile
                             key={id}
-                            hideBody={id !== clickedMovie}
                             onClick={() => this.onMovieTileClick(id)}
                             {...movieData} />
                     </div>

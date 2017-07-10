@@ -8,7 +8,6 @@ import './MovieTile.css';
 export default class MovieTile extends React.Component {
 
     static propTypes = {
-        hideBody: PropTypes.bool,
         onClick: PropTypes.func.isRequired,
 
         movieActors: PropTypes.arrayOf(PropTypes.string),
@@ -20,16 +19,14 @@ export default class MovieTile extends React.Component {
     }
 
     static defaultProps = {
-        hideBody: true,
-
         movieActors: [],
         movieGenres: [],
     }
 
     render() {
+        const { movieGenres, onClick } = this.props;
+        const genreList = movieGenres.join(", ");
 
-        const { hideBody, onClick } = this.props;
-        const genreList = this.props.movieGenres.join(", ");
         return (
             <Card color='teal' link fluid onClick={onClick}>
                 <div className="thumbnailer">
