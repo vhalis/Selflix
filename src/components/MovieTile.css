@@ -1,4 +1,15 @@
-.textblock {
+.overflowingtextblock {
+    height: 3em;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.thumbnailer {
+    height: 250px;
+    overflow: hidden;
+}
+
+.thumbnailer img {
+    position: absolute;
+    top: -50%;
 }

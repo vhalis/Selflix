@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Card, Image } from 'semantic-ui-react';
+import { Card, Image, Grid } from 'semantic-ui-react';
 
 import './MovieTile.css';
 
@@ -27,25 +27,27 @@ export default class MovieTile extends React.Component {
         const genreList = this.props.movieGenres.join(", ");
 
         return (
-            <Card color='teal' link>
-                <Image src={this.props.movieImage} />
+            <Card color='teal' link >
+                <div className="thumbnailer">
+                    <Image src={this.props.movieImage} width="100%" />
+                </div>
                 <Card.Content>
-                    <Card.Header>
-                        {this.props.movieTitle}
-                    </Card.Header>
-                    <Card.Meta>
-                        <span className="date">
-                            {this.props.movieReleaseDate}
-                        </span>
-                    </Card.Meta>
-                    <Card.Description className="textblock">
-                        <p>{this.props.movieDescription}</p>
-                        <p><strong>Actors:</strong> {actorList || "Not available"}</p>                           
-                        <p><strong>Genres:</strong> {genreList || "Not available"}</p>     
-                    </Card.Description>
+                <Card.Header>
+                    {this.props.movieTitle}
+                </Card.Header>
+                <Card.Meta>
+                    {this.props.movieReleaseDate}
+                </Card.Meta>
+                <Card.Description>
+                <div className="overflowingtextblock">
+                    <p>{this.props.movieDescription}</p>
+                    <p><strong>Actors:</strong> {actorList || "Not available"}</p>                           
+                    <p><strong>Genres:</strong> {genreList || "Not available"}</p>     
+                </div>
+                </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    Lorem ipsum dolor sit amet
+                Lorem ipsum dolor sit amet
                 </Card.Content>
             </Card>
         );
