@@ -31,19 +31,11 @@ export default class MovieTile extends React.Component {
         const { hideBody, onClick } = this.props;
         const actorList = this.props.movieActors.join(", ");
         const genreList = this.props.movieGenres.join(", ");
-        const bodyContentClass = hideBody ? "contenthider" : "";
-        const cardOptions = {onClick: hideBody ? onClick : false};
-        const imageThumb = (
-            <div className="thumbnailer">
-                 <Image src={this.props.movieImage} width="100%" />
-            </div>
-        );
-        const imageFull = (
-            <Image src={this.props.movieImage} width="50%" />
-        );
         return (
-            <Card color='teal' fluid {...cardOptions} >
-                { hideBody ? imageThumb : imageFull}
+            <Card color='teal' link fluid onClick={onClick}>
+                <div className="thumbnailer">
+                    <Image src={this.props.movieImage} width="100%" />
+                </div>
                 <Card.Content>
                     <Card.Header>
                         {this.props.movieTitle}
@@ -52,11 +44,8 @@ export default class MovieTile extends React.Component {
                         {this.props.movieReleaseDate}
                     </Card.Meta>
                 </Card.Content>
-                <Card.Content className={bodyContentClass}>
-                    <Card.Description>
-                        <p>{this.props.movieDescription}</p>
-                        <p><strong>Actors:</strong> {actorList || "Not available"}</p>
-                    </Card.Description>
+                <Card.Content extra className="textcutoff">
+                    <strong>Genres:</strong> {genreList || "Not available"}
                 </Card.Content>
                 <Card.Content extra className="textcutoff">
                     <strong>Genres:</strong> {genreList || "Not available"}
