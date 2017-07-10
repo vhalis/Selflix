@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input, Dropdown } from 'semantic-ui-react';
+import { Container, Grid, Icon, Input, Dropdown } from 'semantic-ui-react';
 
 const options = [
     { key: 'title', text: 'by Title', value: 'title' },
@@ -48,7 +48,13 @@ export default class SearchForm extends React.Component {
                 iconPosition='left'
                 onChange={this.onSearchTextChange}
                 placeholder='Search...'
-                value={searchText} />
+                value={searchText}
+                >
+                <input />
+                <Icon name='search' />
+                <Icon link iconPosition='right' name='remove' />
+                {actionDropdown}
+            </Input>
         );
     }
 }
