@@ -4,17 +4,38 @@
 }
 
 .header {
-    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 0px;
 }
 
-.headertext {
+#headertext {
     font-family: 'HeaderFont';
     font-size: 4em;
     color: teal;
-    flex: 0 0 65%;
+
+    padding: 18px;
+
+    display: block;
+    float: left;
+    width: 40%;
+    height: 50px;
 }
 
-.sortmenu {
-    background-color: teal;
-    flex: 1;
+#sortmenu {
+    text-align: right;
+
+    padding: 10px;
+    
+    display: block;
+    float: left;
+    width: 60%;
+    height: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    #headertext, #sortmenu {
+        width: 100%;
+        text-align: center;
+    }
 }

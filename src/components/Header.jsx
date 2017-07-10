@@ -1,5 +1,8 @@
 import React from 'react';
 import  './Header.css';
+import { Dropdown } from 'semantic-ui-react';
+
+import SortBy from './SortBy.jsx';
 
 class Header extends React.Component {
     // This class should be a floating title bar
@@ -8,8 +11,8 @@ class Header extends React.Component {
     render() {
         return (
             <div className='header'>
-                <div className='headertext'>Selflix</div>
-                <div className='sortmenu'></div>
+                <div id='headertext'>SELFLIX</div>
+                <div id='sortmenu'><SortBy /></div>
             </div>
         );
     }

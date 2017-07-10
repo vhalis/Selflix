@@ -5,5 +5,8 @@ import { storiesOf } from '@storybook/react';
 
 storiesOf('Header', module)
   .addDecorator(function(getStory) { return (<div>{getStory()}</div>) })
-  .add('Test A', () => <Header name="A"></Header>)
-  .add('Test B', () => <Header name="B"></Header>);
+  .add('Scroll', () => {
+          return (
+            <div style={{height:"2000px"}}><Header name="A"></Header></div>
+          )})
+  .add('No Scroll', () => <Header></Header>);
