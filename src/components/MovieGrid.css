@@ -10,8 +10,20 @@
     flex-wrap: wrap;
 }
 
+.gridcontent {
+    width: 24%;
+    margin: 5px;
+    min-width: 220px;
+}
+
 @media screen and (max-width: 500px) {
     .gridwrapper {
         top: 100px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .gridcontent {
+        width: 100%;
     }
 }

@@ -12,12 +12,15 @@
     display: none;
 }
 
+<<<<<<< HEAD
+=======
 .gridcontent {
     width: 24%;
     min-width: 220px;
     margin: 5px;
 }
 
+>>>>>>> master
 .ui.card {
     height: 350px;
 }
@@ -29,10 +32,4 @@
 
 .selected .ui.card {
     height: 100%;
-}
-
-@media screen and (max-width: 500px) {
-    .gridcontent {
-        width: 100%;
-    }
 }

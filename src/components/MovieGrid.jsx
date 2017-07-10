@@ -44,6 +44,11 @@ export default class MovieGrid extends React.Component {
                 key='addnew'
                 onClick={this.props.onAddNewMovieClick} />
         );
+        movieTiles = movieTiles.map((tile) => (
+            <div className="gridcontent">
+                {tile}
+            </div>
+        ));
 
         return (
             <div className="gridwrapper">

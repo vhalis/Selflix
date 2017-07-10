@@ -4,6 +4,7 @@ import { Card, Image } from 'semantic-ui-react';
 
 import './MovieTile.css';
 
+
 export default class MovieTile extends React.Component {
 
     static propTypes = {
@@ -33,7 +34,6 @@ export default class MovieTile extends React.Component {
         const bodyContentClass = hideBody ? "contenthider" : "";
 
         return (
-            <div className="gridcontent">
             <Card color='teal' link fluid onClick={onClick}>
                 <div className="thumbnailer">
                     <Image src={this.props.movieImage} width="100%" />

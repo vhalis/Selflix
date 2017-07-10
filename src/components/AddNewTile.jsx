@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Card, Icon } from 'semantic-ui-react';
 
 import './AddNewTile.css';
-import './MovieTile.css';
 
 
 export default class AddNewTile extends React.Component {
@@ -14,17 +13,15 @@ export default class AddNewTile extends React.Component {
 
     render () {
         return (
-            <div className="gridcontent">
-                <Card color='teal' link fluid onClick={this.props.onClick} >
-                    <Card.Content className="totallycentered">
-                        <Icon.Group size='big'>
-                            <Icon circular inverted name='film' color='teal'/>
-                            <Icon corner name='add' color='teal' />
-                        </Icon.Group>
-                        <Card.Header className="leftpadding">Add New Movie</Card.Header>
-                    </Card.Content>
-                </Card>
-            </div>
+            <Card color='teal' link fluid onClick={this.props.onClick} >
+                <Card.Content className="totallycentered">
+                    <Icon.Group size='big'>
+                        <Icon circular inverted name='film' color='teal'/>
+                        <Icon corner name='add' color='teal' />
+                    </Icon.Group>
+                    <Card.Header className="leftpadding">Add New Movie</Card.Header>
+                </Card.Content>
+            </Card>
         );
     }
 }
