@@ -1,35 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Modal } from 'semantic-ui-react';
 
-import { Button, Modal, Header, Icon } from 'semantic-ui-react';
-
-import MovieTile from './MovieTile.jsx';
 
 export default class MovieModal extends React.Component {
 
-    state = { modalOpen: true }
+    static propTypes = {
+        onClose: PropTypes.func.isRequired,
+    }
 
-    handleOpen = (e) => this.setState({
-        modalOpen: true,
-    })
+    state = {
+        isOpen: true,
+    }
 
-    handleClose = (e) => this.setState({
-        modalOpen: false,
-    })
+    onClose = (e) => {
+        this.setState({isOpen: false});
+        this.props.onClose();
+    }
 
     render() {
+        const { isOpen } = this.state;
+
         return (
-        <Modal
-            open={this.state.modalOpen}
-            onClose={this.handleClose}
-            dimmer='blurring'
-            size='fullscreen'
-            basic
-        >
-            <Modal.Content>
-                {this.props.children}
-            </Modal.Content>
-        </Modal>
-        )
+            <Modal
+                basic
+                open={isOpen}
+                onClose={this.onClose}
+                dimmer='blurring'
+                size='fullscreen'
+                >
+                <Modal.Content>
+                    {this.props.children}
+                </Modal.Content>
+            </Modal>
+        );
     }
 }

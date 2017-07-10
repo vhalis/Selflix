@@ -49,11 +49,11 @@ export default class MovieGrid extends React.Component {
         var movieTiles = this.props.movies.map((movieData, id) => {
             if (id === clickedMovie) {
                 return (
-                    <MovieModal>
+                    <MovieModal onClose={() => this.onMovieTileClick(id)}>
                         <MovieTile
                             key={id}
                             hideBody={id !== clickedMovie}
-                            onClick={() => this.onMovieTileClick(id)}
+                            onClick={() => null}
                             {...movieData} />
                     </MovieModal>
                 );
