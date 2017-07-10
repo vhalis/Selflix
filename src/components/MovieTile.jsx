@@ -29,7 +29,6 @@ export default class MovieTile extends React.Component {
     render() {
 
         const { hideBody, onClick } = this.props;
-        const actorList = this.props.movieActors.join(", ");
         const genreList = this.props.movieGenres.join(", ");
         return (
             <Card color='teal' link fluid onClick={onClick}>
@@ -43,9 +42,6 @@ export default class MovieTile extends React.Component {
                     <Card.Meta>
                         {this.props.movieReleaseDate}
                     </Card.Meta>
-                </Card.Content>
-                <Card.Content extra className="textcutoff">
-                    <strong>Genres:</strong> {genreList || "Not available"}
                 </Card.Content>
                 <Card.Content extra className="textcutoff">
                     <strong>Genres:</strong> {genreList || "Not available"}

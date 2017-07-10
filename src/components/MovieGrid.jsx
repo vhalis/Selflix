@@ -49,13 +49,9 @@ export default class MovieGrid extends React.Component {
         var movieTiles = this.props.movies.map((movieData, id) => {
             if (id === clickedMovie) {
                 return (
-                    <MovieModal onClose={() => this.onMovieTileClick(id)}>
-                        <MovieTile
-                            key={id}
-                            hideBody={id !== clickedMovie}
-                            onClick={() => null}
-                            {...movieData} />
-                    </MovieModal>
+                    <MovieModal 
+                        onClose={() => this.onMovieTileClick(id)}
+                        {...movieData} />
                 );
             } else {
                 return (
