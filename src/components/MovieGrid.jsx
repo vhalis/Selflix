@@ -30,6 +30,12 @@ export default class MovieGrid extends React.Component {
         clickedMovie: -1,
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.movies.length !== this.props.movies.length) {
+            this.setState({clickedMovie: -1});
+        }
+    }
+
     onMovieTileClick = (id) => {
         this.setState((prevState) => ({
             clickedMovie: prevState.clickedMovie !== id ? id : -1, 
@@ -38,7 +44,6 @@ export default class MovieGrid extends React.Component {
 
     render () {
         const { clickedMovie } = this.state;
-
 
         var movieTiles = this.props.movies.map((movieData, id) =>
             <div key={id} className={id === clickedMovie ? "selected" : "gridcontent"}>
