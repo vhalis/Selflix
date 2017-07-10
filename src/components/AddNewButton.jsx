@@ -14,16 +14,12 @@ export default class AddNewButton extends React.Component {
     render() { 
         return (
             <div className="floatbottomright">
-<<<<<<< HEAD
-                <Button circular color='teal' icon='plus' />
-=======
                 <Button
                     circular
                     color='teal'
                     icon='plus'
                     onClick={this.props.onClick}
                     />
->>>>>>> 92db78f84f2c001768e273c7e862d21fffb96efe
             </div>
         );
     }
