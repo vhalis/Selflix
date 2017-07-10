@@ -27,11 +27,13 @@ const defaultProps = [
         movieReleaseDate: "May 2017",
         movieTitle: "The Avengers Get Shawerma Again",
         movieDescription: "Doesn't it make things seem more real? Are you getting hungry?",
+        movieImage: "https://source.unsplash.com/6YRudimqrbE"
     },
     {
         movieReleaseDate: "May 2017",
         movieTitle: "The Avengers Get Shawerma Again and Again",
         movieDescription: "Doesn't it make things seem more real? Are you getting hungry?",
+        movieImage: "https://source.unsplash.com/Nb925OJmUhk"
     },
 ];
 

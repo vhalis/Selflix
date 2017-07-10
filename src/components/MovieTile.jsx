@@ -9,13 +9,23 @@ export default class MovieTile extends React.Component {
     static propTypes = {
         movieActors: PropTypes.arrayOf(PropTypes.string),
         movieDescription: PropTypes.string,
-        movieGenre: PropTypes.string,
+        movieGenres: PropTypes.arrayOf(PropTypes.string),
         movieImage: PropTypes.string,
         movieReleaseDate: PropTypes.string,
         movieTitle: PropTypes.string,
     }
 
+    static defaultProps = {
+        movieActors: [],
+        movieGenres: [],
+    }
+    
+
     render() {
+
+        const actorList = this.props.movieActors.join(", ");
+        const genreList = this.props.movieGenres.join(", ");
+
         return (
             <Card color='teal' link>
                 <Image src={this.props.movieImage} />
@@ -28,10 +38,10 @@ export default class MovieTile extends React.Component {
                             {this.props.movieReleaseDate}
                         </span>
                     </Card.Meta>
-                    <Card.Description>
-                        <div className="textblock">
-                            {this.props.movieDescription}
-                        </div>
+                    <Card.Description className="textblock">
+                        <p>{this.props.movieDescription}</p>
+                        <p><strong>Actors:</strong> {actorList || "Not available"}</p>                           
+                        <p><strong>Genres:</strong> {genreList || "Not available"}</p>     
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>

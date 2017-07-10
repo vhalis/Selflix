@@ -1,5 +1,4 @@
 .textblock {
-    height: 4em;
     overflow: hidden;
     text-overflow: ellipsis;
 }
