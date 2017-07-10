@@ -7,6 +7,9 @@ import './MovieTile.css';
 export default class MovieTile extends React.Component {
 
     static propTypes = {
+        hideBody: PropTypes.bool,
+        onClick: PropTypes.func.isRequired,
+
         movieActors: PropTypes.arrayOf(PropTypes.string),
         movieDescription: PropTypes.string,
         movieGenres: PropTypes.arrayOf(PropTypes.string),
@@ -16,33 +19,22 @@ export default class MovieTile extends React.Component {
     }
 
     static defaultProps = {
+        hideBody: true,
+
         movieActors: [],
         movieGenres: [],
     }
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            hideBody: true,
-        };
-    }
-    
-    onCardClick = (e) => {
-        this.setState((prevState) => ({
-            hideBody: !prevState.hideBody,
-        }));
-    }
-
     render() {
 
-        const { hideBody } = this.state;
+        const { hideBody, onClick } = this.props;
         const actorList = this.props.movieActors.join(", ");
         const genreList = this.props.movieGenres.join(", ");
         const bodyContentClass = hideBody ? "contenthider" : "";
 
         return (
             <div className="gridcontent">
-            <Card color='teal' link fluid onClick={this.onCardClick}>
+            <Card color='teal' link fluid onClick={onClick}>
                 <div className="thumbnailer">
                     <Image src={this.props.movieImage} width="100%" />
                 </div>
