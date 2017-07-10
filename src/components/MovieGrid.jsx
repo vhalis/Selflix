@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import AddNewTile from './AddNewTile.jsx';
 import MovieTile from './MovieTile.jsx';
+import MovieModal from './MovieModal.jsx';
 
 import './MovieGrid.css';
 
@@ -45,14 +46,31 @@ export default class MovieGrid extends React.Component {
     render () {
         const { clickedMovie } = this.state;
 
-        var movieTiles = this.props.movies.map((movieData, id) =>
-            <div key={id} className={id === clickedMovie ? "selected" : "gridcontent"}>
-                <MovieTile
-                    hideBody={id !== clickedMovie}
-                    onClick={() => this.onMovieTileClick(id)}
-                    {...movieData} />
-            </div>
-        );
+        var movieTiles = this.props.movies.map((movieData, id) => {
+            if (id === clickedMovie) {
+                return (
+                    <MovieModal>
+                        <MovieTile
+                            key={id}
+                            hideBody={id !== clickedMovie}
+                            onClick={() => this.onMovieTileClick(id)}
+                            {...movieData} />
+                    </MovieModal>
+                );
+            } else {
+                return (
+                    <div className="gridcontent">
+                        <MovieTile
+                            key={id}
+                            hideBody={id !== clickedMovie}
+                            onClick={() => this.onMovieTileClick(id)}
+                            {...movieData} />
+                    </div>
+                );
+            }
+
+        });
+
         movieTiles.unshift(
             <div key="addnew" className="gridcontent">
                 <AddNewTile

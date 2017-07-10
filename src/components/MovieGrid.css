@@ -18,16 +18,6 @@
     transition: all 0.5s;
 }
 
-.selected {
-    width: 100%;
-    margin: 10px auto;
-    transition: all 0.5s;
-}
-
-.selected .ui.card {
-    height: 100%;
-}
-
 @media screen and (max-width: 500px) {
     .gridcontent {
         width: 100%;

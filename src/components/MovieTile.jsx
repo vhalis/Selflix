@@ -32,12 +32,18 @@ export default class MovieTile extends React.Component {
         const actorList = this.props.movieActors.join(", ");
         const genreList = this.props.movieGenres.join(", ");
         const bodyContentClass = hideBody ? "contenthider" : "";
-
+        const cardOptions = {onClick: hideBody ? onClick : false};
+        const imageThumb = (
+            <div className="thumbnailer">
+                 <Image src={this.props.movieImage} width="100%" />
+            </div>
+        );
+        const imageFull = (
+            <Image src={this.props.movieImage} width="50%" />
+        );
         return (
-            <Card color='teal' link fluid onClick={onClick}>
-                <div className="thumbnailer">
-                    <Image src={this.props.movieImage} width="100%" />
-                </div>
+            <Card color='teal' fluid {...cardOptions} >
+                { hideBody ? imageThumb : imageFull}
                 <Card.Content>
                     <Card.Header>
                         {this.props.movieTitle}

@@ -95,6 +95,7 @@ export default class AddMovieModal extends React.Component {
             <Modal
                 closeIcon={closeButton}
                 open={modalOpen}
+                dimmer='blurring'
                 >
                 <Modal.Header>Add a New Movie</Modal.Header>
                 <Modal.Content>

@@ -15,11 +15,10 @@ export default class AddNewTile extends React.Component {
         return (
             <Card color='teal' link fluid onClick={this.props.onClick} >
                 <Card.Content className="totallycentered">
-                    <Icon.Group size='big'>
+                    <Icon.Group size='huge'>
                         <Icon circular inverted name='film' color='teal'/>
                         <Icon corner name='add' color='teal' />
                     </Icon.Group>
-                    <Card.Header className="leftpadding">Add New Movie</Card.Header>
                 </Card.Content>
             </Card>
         );
