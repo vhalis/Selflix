@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Input, Dropdown } from 'semantic-ui-react';
 
 
@@ -8,20 +9,47 @@ const options = [
     { key: 'actor', text: 'by Actor', value: 'actor' },
 ];
 
-class SearchForm extends React.Component {
+export default class SearchForm extends React.Component {
 
-    render() { 
-        return (
-            <Input
-                action={<Dropdown button basic floating options={options} defaultValue='title' />}
-                icon='search'
-                iconPosition='left'
-                placeholder='Search...'
-                fluid
-            />
-        );
+    static propTypes = {
+        onSearchFieldChange: PropTypes.func.isRequired,
+        onSearchTextChange: PropTypes.func.isRequired,
     }
 
-}
+    state = {
+        searchField: 'title',
+        searchText: '',
+    }
 
-export default SearchForm;
+    onSearchFieldChange = (e, { value }) => {
+        this.setState({searchField: value});
+        this.props.onSearchFieldChange(value);
+    }
+
+    onSearchTextChange = (e, { value }) => {
+        this.setState({searchText: value});
+        this.props.onSearchTextChange(value);
+    }
+
+    render() { 
+        const { searchField, searchText } = this.state;
+        const actionDropdown = (
+            <Dropdown
+                button basic floating
+                options={options}
+                onChange={this.onSearchFieldChange}
+                value={searchField} />
+        );
+
+        return (
+            <Input
+                fluid
+                action={actionDropdown}
+                icon='search'
+                iconPosition='left'
+                onChange={this.onSearchTextChange}
+                placeholder='Search...'
+                value={searchText} />
+        );
+    }
+}

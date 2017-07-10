@@ -22,7 +22,11 @@ export default class App extends React.Component {
     movieList: [],
     numberOfMovies: 0,
 
-    // Sort paramters
+    // Search parameters
+    searchField: 'title',
+    searchText: '',
+
+    // Sort parameters
     sortOrder: 'ascending',
     sortType: 'title',
   }
@@ -41,58 +45,68 @@ export default class App extends React.Component {
   }
   // End modal methods
 
-  // Storage methods
-  createNewMovie = ({
-    movieActors,
-    movieDescription,
-    movieGenres,
-    movieImage,
-    movieReleaseDate,
-    movieTitle,
-  }) => {
-    const newMovie = {
-      movieActors: movieActors.sort(),
-      movieDescription: movieDescription,
-      movieGenres: movieGenres.sort(),
-      movieImage: movieImage,
-      movieReleaseDate: movieReleaseDate,
-      movieTitle: movieTitle,
-    };
-    this.setState((prevState) => prevState.movieList.push(newMovie));
-    this.saveMovie(newMovie);
-  }
-
-  loadMovies () {
-    const movieCount = parseInt(localStorage.getItem(MOVIE_COUNT_KEY), 10);
-    if (movieCount) {
-      var movieList = [];
-      var curMovie = 0;
-      while (curMovie < movieCount) {
-        movieList.push(this.loadMovie(curMovie++));
-      }
-      this.setState({
-        movieList: movieList,
-        numberOfMovies: movieCount,
-      });
+  // Search methods
+  getSearchMovieFunction = (searchField, searchText) => {
+    if (searchField === 'actor') {
+      return this.searchByActor.bind(this, searchText);
+    } else if (searchField === 'genre') {
+      return this.searchByGenre.bind(this, searchText);
+    } else if (searchField === 'title') {
+      return this.searchByTitle.bind(this, searchText);
     }
+
+    return (() => true);
   }
 
-  loadMovie (movieNum) {
-    return JSON.parse(localStorage.getItem(MOVIE_STORE_KEY + movieNum));
+  onSearchFieldChange = (value) => {
+    this.setState((prevState) => {
+      if (prevState.searchField !== value) {
+        return {searchField: value};
+      } else {
+        return {};
+      }
+    });
   }
 
-  saveMovie = (movieObj) => {
-    var { numberOfMovies } = this.state;
-    localStorage.setItem(
-      MOVIE_STORE_KEY + numberOfMovies,
-      JSON.stringify(movieObj));
-    numberOfMovies += 1;
-    localStorage.setItem(MOVIE_COUNT_KEY, numberOfMovies);
-    this.setState({numberOfMovies: numberOfMovies});
+  onSearchTextChange = (value) => {
+    const newVal = value.toLowerCase();
+    this.setState((prevState) => {
+      if (prevState.searchText !== newVal) {
+        return {searchText: newVal};
+      } else {
+        return {};
+      }
+    });
   }
-  // End storage methods
+
+  searchByActor(searchText, movie) {
+    return movie.movieActors.some((a) => a.toLowerCase().includes(searchText));
+  }
+
+  searchByGenre(searchText, movie) {
+    return movie.movieGenres.some((g) => g.toLowerCase().includes(searchText));
+  }
+
+  searchByTitle(searchText, movie) {
+    return movie.movieTitle.toLowerCase().includes(searchText);
+  }
+  // End search methods
 
   // Sort methods
+  getSortMovieFunction = (sortType, reverse) => {
+    const flip = reverse ? -1 : 1;
+
+    if (sortType === 'title') {
+      return ((a, b) => this.sortByTitle(a, b) * flip);
+    } else if (sortType === 'genre') {
+      return ((a, b) => this.sortByGenre(a, b) * flip);
+    } else if (sortType === 'releaseDate') {
+      return ((a, b) => this.sortByReleaseDate(a, b) * flip);
+    }
+
+    return (() => 0);
+  } 
+
   onChangeOrderBy = (orderBy) => {
     this.setState((prevState) => {
       if (orderBy !== prevState.sortOrder) {
@@ -150,27 +164,75 @@ export default class App extends React.Component {
   sortByTitle(a, b) {
     return a.movieTitle.localeCompare(b.movieTitle);
   }
-
-  getSortMovieFunction = (sortType, reverse) => {
-    const flip = reverse ? -1 : 1;
-
-    if (sortType === 'title') {
-      return ((a, b) => this.sortByTitle(a, b) * flip);
-    } else if (sortType === 'genre') {
-      return ((a, b) => this.sortByGenre(a, b) * flip);
-    } else if (sortType === 'releaseDate') {
-      return ((a, b) => this.sortByReleaseDate(a, b) * flip);
-    }
-
-    return (() => 0);
-  } 
   // End sort methods
 
+  // Storage methods
+  createNewMovie = ({
+    movieActors,
+    movieDescription,
+    movieGenres,
+    movieImage,
+    movieReleaseDate,
+    movieTitle,
+  }) => {
+    const newMovie = {
+      movieActors: movieActors.sort(),
+      movieDescription: movieDescription,
+      movieGenres: movieGenres.sort(),
+      movieImage: movieImage,
+      movieReleaseDate: movieReleaseDate,
+      movieTitle: movieTitle,
+    };
+    this.setState((prevState) => prevState.movieList.push(newMovie));
+    this.saveMovie(newMovie);
+  }
+
+  loadMovies () {
+    const movieCount = parseInt(localStorage.getItem(MOVIE_COUNT_KEY), 10);
+    if (movieCount) {
+      var movieList = [];
+      var curMovie = 0;
+      while (curMovie < movieCount) {
+        movieList.push(this.loadMovie(curMovie++));
+      }
+      this.setState({
+        movieList: movieList,
+        numberOfMovies: movieCount,
+      });
+    }
+  }
+
+  loadMovie (movieNum) {
+    return JSON.parse(localStorage.getItem(MOVIE_STORE_KEY + movieNum));
+  }
+
+  saveMovie = (movieObj) => {
+    var { numberOfMovies } = this.state;
+    localStorage.setItem(
+      MOVIE_STORE_KEY + numberOfMovies,
+      JSON.stringify(movieObj));
+    numberOfMovies += 1;
+    localStorage.setItem(MOVIE_COUNT_KEY, numberOfMovies);
+    this.setState({numberOfMovies: numberOfMovies});
+  }
+  // End storage methods
+
   render() {
-    const { modalOpen, sortOrder, sortType } = this.state;
+    const {
+      modalOpen,
+      searchField,
+      searchText,
+      sortOrder,
+      sortType,
+    } = this.state;
     var { movieList } = this.state;
     const reverse = sortOrder === 'ascending' ? false : true;
 
+    if (searchText !== "") {
+      movieList = movieList.filter(
+        this.getSearchMovieFunction(searchField, searchText)
+      );
+    }
     movieList.sort(this.getSortMovieFunction(sortType, reverse));
 
     return (
@@ -180,7 +242,11 @@ export default class App extends React.Component {
           movies={movieList} />
         <div className="floattopcentre">
           <div className="headerleft">SELFLIX</div>
-          <div className="headerright"><SearchForm /></div>
+          <div className="headerright">
+            <SearchForm
+              onSearchFieldChange={this.onSearchFieldChange}
+              onSearchTextChange={this.onSearchTextChange} />
+          </div>
           <SortBy 
             activeOrder={sortOrder} 
             activeType={sortType}
