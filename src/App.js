@@ -9,6 +9,9 @@ import SortBy from './components/SortBy.jsx';
 import SearchForm from './components/SearchForm.jsx';
 
 
+const MOVIE_COUNT_KEY = 'storedMovieCount';
+const MOVIE_STORE_KEY = 'storedMovieNumber';
+
 export default class App extends React.Component {
 
   constructor(props) {
@@ -16,7 +19,12 @@ export default class App extends React.Component {
     this.state = {
       modalOpen: false,
       movieList: [],
+      numberOfMovies: 0,
     };
+  }
+
+  componentWillMount () {
+    this.loadMovies();
   }
 
   createNewMovie = ({
@@ -27,16 +35,16 @@ export default class App extends React.Component {
     movieReleaseDate,
     movieTitle,
   }) => {
-    this.setState((prevState) => (
-      prevState.movieList.push({
-        movieActors: movieActors,
-        movieDescription: movieDescription,
-        movieGenres: movieGenres,
-        movieImage: movieImage,
-        movieReleaseDate: movieReleaseDate,
-        movieTitle: movieTitle,
-      })
-    ));
+    const newMovie = {
+      movieActors: movieActors,
+      movieDescription: movieDescription,
+      movieGenres: movieGenres,
+      movieImage: movieImage,
+      movieReleaseDate: movieReleaseDate,
+      movieTitle: movieTitle,
+    };
+    this.setState((prevState) => prevState.movieList.push(newMovie));
+    this.saveMovie(newMovie);
   }
 
   doModalClose = (e) => {
@@ -45,6 +53,35 @@ export default class App extends React.Component {
 
   doModalOpen = (e) => {
     this.setState({modalOpen: true});
+  }
+
+  loadMovies () {
+    const storedMovieCount = localStorage.getItem(MOVIE_COUNT_KEY);
+    if (storedMovieCount) {
+      var movieList = [];
+      var curMovie = 0;
+      while (curMovie < storedMovieCount) {
+        movieList.push(this.loadMovie(curMovie++));
+      }
+      this.setState({
+        movieList: movieList,
+        numberOfMovies: storedMovieCount,
+      });
+    }
+  }
+
+  loadMovie (movieNum) {
+    return JSON.parse(localStorage.getItem(MOVIE_STORE_KEY + movieNum));
+  }
+
+  saveMovie = (movieObj) => {
+    var { numberOfMovies } = this.state;
+    localStorage.setItem(
+      MOVIE_STORE_KEY + numberOfMovies,
+      JSON.stringify(movieObj));
+    numberOfMovies += 1;
+    localStorage.setItem(MOVIE_COUNT_KEY, numberOfMovies);
+    this.setState({numberOfMovies: numberOfMovies});
   }
 
   render() {
