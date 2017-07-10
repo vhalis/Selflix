@@ -18,7 +18,7 @@ class SortBy extends React.Component {
 
         return (
             <div className="sortmenu">
-                <Menu color='teal' secondary fluid>
+                <Menu color='teal' fluid>
                     <Menu.Item header>SORT BY</Menu.Item>
                     <Menu.Item name='title' active={activeType === 'title'} onClick={this.handleTypeClick} />
                     <Menu.Item name='genre' active={activeType === 'genre'} onClick={this.handleTypeClick} />

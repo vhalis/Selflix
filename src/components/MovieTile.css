@@ -13,9 +13,9 @@
 }
 
 .gridcontent {
-    width: 25%;
+    width: 24%;
     min-width: 220px;
-    float: left;
+    margin: 5px;
 }
 
 .ui.card {
