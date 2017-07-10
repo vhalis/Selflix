@@ -32,6 +32,8 @@ export default class MovieGrid extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        // Cancel clicked state if movies get filtered
+        // Not strictly necessary with the modal overlay
         if (nextProps.movies.length !== this.props.movies.length) {
             this.setState({clickedMovie: -1});
         }

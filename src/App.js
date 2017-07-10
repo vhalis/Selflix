@@ -237,9 +237,6 @@ export default class App extends React.Component {
 
     return (
       <div className="mainbody">
-        <MovieGrid
-          onAddNewMovieClick={this.doModalOpen}
-          movies={movieList} />
         <div className="floattopcentre">
           <div className="headerleft"><a href="#">SELFLIX</a></div>
           <div className="headerright">
@@ -253,6 +250,9 @@ export default class App extends React.Component {
             onChangeOrderBy={this.onChangeOrderBy}
             onChangeSortType={this.onChangeSortType} />
         </div>
+        <MovieGrid
+          onAddNewMovieClick={this.doModalOpen}
+          movies={movieList} />
         <AddNewButton onClick={this.doModalOpen} />
         <AddMovieModal
           createNewMovie={this.createNewMovie}

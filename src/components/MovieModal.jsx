@@ -16,6 +16,11 @@ export default class MovieModal extends React.Component {
         movieTitle: PropTypes.string.isRequired,
     }
 
+    static defaultProps = {
+        movieActors: [],
+        movieGenres: [],
+    }
+
     state = {
         isOpen: true,
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown, Form, Icon, Modal } from 'semantic-ui-react';
+import { Container, Dropdown, Form, Grid, Icon, Modal } from 'semantic-ui-react';
 
 
 const movieSuggestions = [
@@ -148,42 +148,15 @@ export default class AddMovieModal extends React.Component {
         } = this.state;
 
 
-        const dropdownOptions = [
-            {
-                text: '1',
-                value: 1,
-            },
-            {
-                text: '2',
-                value: 2,
-            },
-            {
-                text: '3',
-                value: 3,
-            },
-            {
-                text: '4',
-                value: 4,
-            },
-            {
-                text: '5',
-                value: 5,
-            },
-            {
-                text: '6',
-                value: 6,
-            },
-            {
-                text: '7',
-                value: 7,
-            }
-        ];
-        const populateDropdown = (
+        const suggestionsOptions = [0, 1, 2, 3, 4, 5, 6].map((i) => {
+            return { value: i, text: movieSuggestions[i].movieTitle };
+        })
+        const suggestionsDropdown = (
             <Dropdown
-                placeholder='Select dummy movie'
                 selection
-                options={dropdownOptions}
-                onChange={this.setDummyDataToState} />
+                onChange={this.setDummyDataToState}
+                options={suggestionsOptions}
+                placeholder='Select dummy movie' />
         );
 
         const closeButton = (
@@ -200,7 +173,16 @@ export default class AddMovieModal extends React.Component {
                 open={modalOpen}
                 dimmer='blurring'
                 >
-                <Modal.Header>Add a New Movie {populateDropdown}</Modal.Header>
+                <Modal.Header>
+                    <Grid columns={2} verticalAlign='middle'>
+                        <Grid.Column>Add a New Movie</Grid.Column>
+                        <Grid.Column floated='right'>
+                            <Container textAlign='right'>
+                                {suggestionsDropdown}
+                            </Container>
+                        </Grid.Column>
+                    </Grid>
+                </Modal.Header>
                 <Modal.Content>
                     <Form onSubmit={this.handleSubmit}>
                         <Form.Input
