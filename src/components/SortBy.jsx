@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Menu, Icon } from 'semantic-ui-react';
 
 import './SortBy.css';
@@ -6,16 +7,29 @@ import './SortBy.css';
 
 export default class SortBy extends React.Component {
 
-    state = { 
+    static propTypes = {
+        activeOrder: PropTypes.oneOf(['ascending', 'descending']),
+        activeType: PropTypes.oneOf(['title', 'genre', 'releaseDate']),
+
+        onChangeOrderBy: PropTypes.func.isRequired,
+        onChangeSortType: PropTypes.func.isRequired,
+    }
+
+    static defaultProps = {
         activeOrder: 'ascending',
         activeType: 'title',
     }
 
-    handleTypeClick = (e, { name }) => this.setState({ activeType: name })
-    handleOrderClick = (e, { name }) => this.setState({ activeOrder: name })
+    handleOrderClick = (e, { name }) => {
+        this.props.onChangeOrderBy(name);
+    }
+
+    handleTypeClick = (e, { name }) => {
+        this.props.onChangeSortType(name);
+    }
 
     render() { 
-        const { activeOrder, activeType } = this.state;
+        const { activeOrder, activeType } = this.props;
 
         return (
             <div className="sortmenu">

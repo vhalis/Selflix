@@ -12,7 +12,14 @@ export default class MovieGrid extends React.Component {
     static propTypes = {
         onAddNewMovieClick: PropTypes.func.isRequired,
 
-        movies: PropTypes.arrayOf(PropTypes.objectOf(MovieTile.propTypes)), 
+        movies: PropTypes.arrayOf(PropTypes.shape({
+            movieActors: PropTypes.arrayOf(PropTypes.string),
+            movieDescription: PropTypes.string,
+            movieGenres: PropTypes.arrayOf(PropTypes.string),
+            movieImage: PropTypes.string,
+            movieReleaseDate: PropTypes.string,
+            movieTitle: PropTypes.string.isRequired,
+        })), 
     }
 
     static defaultProps = {
@@ -44,8 +51,8 @@ export default class MovieGrid extends React.Component {
                 key='addnew'
                 onClick={this.props.onAddNewMovieClick} />
         );
-        movieTiles = movieTiles.map((tile) => (
-            <div className="gridcontent">
+        movieTiles = movieTiles.map((tile, i) => (
+            <div key={i} className="gridcontent">
                 {tile}
             </div>
         ));

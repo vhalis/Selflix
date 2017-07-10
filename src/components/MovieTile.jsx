@@ -16,7 +16,7 @@ export default class MovieTile extends React.Component {
         movieGenres: PropTypes.arrayOf(PropTypes.string),
         movieImage: PropTypes.string,
         movieReleaseDate: PropTypes.string,
-        movieTitle: PropTypes.string,
+        movieTitle: PropTypes.string.isRequired,
     }
 
     static defaultProps = {

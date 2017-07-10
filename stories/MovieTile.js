@@ -12,6 +12,10 @@ const defaultProps = {
   movieImage: "https://image.tmdb.org/t/p/w500/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
 }
 
+const minimalProps = {
+  movieTitle: "You need a movie title",
+}
+
 storiesOf('MovieTile', module)
   .add('with text', () =>
     <MovieTile
@@ -24,4 +28,5 @@ storiesOf('MovieTile', module)
       {...defaultProps} />)
   .add('without props', () =>
     <MovieTile
-      onClick={action('clicked')}/>);
+      onClick={action('clicked')}
+      {...minimalProps} />);
