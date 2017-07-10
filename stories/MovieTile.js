@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import MovieTile from '../src/components/MovieTile.jsx';
-
+import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
+
+import MovieTile from '../src/components/MovieTile.jsx';
+
 
 const defaultProps = {
   movieReleaseDate: "June 2015",

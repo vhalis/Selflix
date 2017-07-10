@@ -16,7 +16,28 @@ export default class App extends Component {
     super(props);
     this.state = {
       modalOpen: false,
+      movieList: [],
     };
+  }
+
+  createNewMovie = ({
+    movieActors,
+    movieDescription,
+    movieGenres,
+    movieImage,
+    movieReleaseDate,
+    movieTitle,
+  }) => {
+    this.setState((prevState) => (
+      prevState.movieList.push({
+        movieActors: movieActors,
+        movieDescription: movieDescription,
+        movieGenres: movieGenres,
+        movieImage: movieImage,
+        movieReleaseDate: movieReleaseDate,
+        movieTitle: movieTitle,
+      })
+    ));
   }
 
   doModalClose = (e) => {
@@ -28,7 +49,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { modalOpen } = this.state;
+    const { modalOpen, movieList } = this.state;
 
     return (
       <div className="mainbody">
@@ -37,12 +58,15 @@ export default class App extends Component {
           <div className="headerright"><SearchForm /></div>
         </div>
         <div className="sortmenu"><SortBy /></div>
-        <MovieGrid onAddNewMovieClick={this.doModalOpen} />
+        <MovieGrid
+          onAddNewMovieClick={this.doModalOpen}
+          movies={movieList} />
         <AddNewButton onClick={this.doModalOpen} />
         <AddMovieModal
-            onClose={this.doModalClose}
-            modalOpen={modalOpen}
-            />
+          createNewMovie={this.createNewMovie}
+          onClose={this.doModalClose}
+          modalOpen={modalOpen}
+          />
       </div>
     );
   }
