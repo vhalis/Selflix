@@ -11,7 +11,7 @@ class SortBy extends React.Component {
 
     render() { 
         return (
-        <Menu color='teal' compact>
+        <Menu color='teal' fluid>
             <Dropdown text='Sort by...' options={options} simple item />
             <Menu.Item icon='sort alphabet ascending' />
             <Menu.Item icon='sort alphabet descending' />

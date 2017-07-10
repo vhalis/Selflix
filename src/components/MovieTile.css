@@ -12,13 +12,10 @@
     display: none;
 }
 
-
-
 .gridcontent {
-    width: 20%;
-    min-width: 262px;
+    width: 25%;
+    min-width: 220px;
     float: left;
-    margin: 5px;
 }
 
 .ui.card {
@@ -32,4 +29,10 @@
 
 .selected .ui.card {
     height: 100%;
+}
+
+@media screen and (max-width: 500px) {
+    .gridcontent {
+        width: 100%;
+    }
 }

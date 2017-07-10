@@ -5,6 +5,8 @@ import { Card, Grid, Container } from 'semantic-ui-react';
 import AddNewTile from './AddNewTile.jsx';
 import MovieTile from './MovieTile.jsx';
 
+import './MovieGrid.css';
+
 export default class MovieGrid extends React.Component {
 
     static propTypes = {
@@ -47,7 +49,7 @@ export default class MovieGrid extends React.Component {
         );
 
         return (
-            <div class="gridwrapper">
+            <div className="gridwrapper">
                 {movieTiles}
             </div>
         );
