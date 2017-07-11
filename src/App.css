@@ -34,6 +34,8 @@ body {
     margin-bottom: 5px;
     height: 50px;
     padding: 15px 20px;
+
+    transition: all 0.5s ease;
 }
 
 .headerleft a {
@@ -42,6 +44,8 @@ body {
 
 .headerleft a:hover {
     color: teal;
+
+    transition: all 0.5s ease;
 }
 
 .headerright {
@@ -53,6 +57,8 @@ body {
     margin-bottom: 5px;
     height: 50px;
     padding: 10px;
+
+    transition: all 0.5s ease;
 }
 
 .headerright .ui.input input:focus {

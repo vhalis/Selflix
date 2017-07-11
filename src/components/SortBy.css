@@ -3,9 +3,16 @@
     padding: 10px 10px;
     width: 100%;
     min-width: 440px;
+    
+    transition: all 0.5s ease;
 }
 .sortmenu .ui.menu {
     box-shadow: none;
     -webkit-box-shadow: none;
     min-width: 440px;
 }
+
+.ui.menu .teal.active.item, .ui.teal.menu .active.item {
+    transition: all 0.3s ease;
+}
+

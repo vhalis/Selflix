@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Grid, Icon, Input, Dropdown } from 'semantic-ui-react';
+import { Icon, Input, Dropdown } from 'semantic-ui-react';
 
 const options = [
     { key: 'title', text: 'by Title', value: 'title' },
@@ -50,9 +50,9 @@ export default class SearchForm extends React.Component {
                 placeholder='Search...'
                 value={searchText}
                 >
-                <input />
                 <Icon name='search' />
-                <Icon link iconPosition='right' name='remove' />
+                <input />
+                <Icon link name='remove' style={{right:'110px', left:'auto'}} />
                 {actionDropdown}
             </Input>
         );
