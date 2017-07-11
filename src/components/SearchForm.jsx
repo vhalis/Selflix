@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Input, Dropdown } from 'semantic-ui-react';
 
+
 const options = [
     { key: 'title', text: 'by Title', value: 'title' },
     { key: 'genre', text: 'by Genre', value: 'genre' },
@@ -52,7 +53,11 @@ export default class SearchForm extends React.Component {
                 >
                 <Icon name='search' />
                 <input />
-                <Icon link name='remove' style={{right:'110px', left:'auto'}} />
+                <Icon
+                    link
+                    name='remove'
+                    onClick={() => this.onSearchTextChange(null, {value: ""})}
+                    style={{right:'110px', left:'auto'}} />
                 {actionDropdown}
             </Input>
         );
