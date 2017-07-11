@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Icon } from 'semantic-ui-react';
-
 import AddNewButton from './components/AddNewButton.jsx';
 import AddMovieModal from './components/AddMovieModal.jsx';
 import MovieGrid from './components/MovieGrid.jsx';
