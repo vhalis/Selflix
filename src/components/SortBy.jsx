@@ -33,21 +33,20 @@ export default class SortBy extends React.Component {
 
         return (
             <div className="sortmenu">
-                <Menu color='teal' fluid>
-                    <Menu.Item header>SORT BY</Menu.Item>
-                    <Menu.Item
-                        name='title'
-                        active={activeType === 'title'}
-                        onClick={this.handleTypeClick} />
-                    <Menu.Item
-                        name='genre'
-                        active={activeType === 'genre'}
-                        onClick={this.handleTypeClick} />
-                    <Menu.Item
-                        name='releaseDate'
-                        active={activeType === 'releaseDate'}
-                        onClick={this.handleTypeClick} />
-                    <Menu.Menu position='right'>
+                <Menu color='teal' stackable fluid>
+                        <Menu.Item header>SORT BY</Menu.Item>
+                        <Menu.Item
+                            name='title'
+                            active={activeType === 'title'}
+                            onClick={this.handleTypeClick} />
+                        <Menu.Item
+                            name='genre'
+                            active={activeType === 'genre'}
+                            onClick={this.handleTypeClick} />
+                        <Menu.Item
+                            name='releaseDate'
+                            active={activeType === 'releaseDate'}
+                            onClick={this.handleTypeClick} />
                         <Menu.Item
                             name='ascending'
                             active={activeOrder === 'ascending'}
@@ -62,7 +61,6 @@ export default class SortBy extends React.Component {
                             >
                             <Icon name='sort alphabet descending' />
                         </Menu.Item>
-                    </Menu.Menu>
                 </Menu>
             </div>
         );

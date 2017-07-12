@@ -4,19 +4,19 @@
 }
 
 body {
-    min-width: 462px;
+    min-width: 400px;
 }
 
 .mainbody {
     width: 100%;
-    min-width: 462px;
+    min-width: 400px;
     height: 100%;
     margin: 0px;
 }
 
 .floattopcentre {
     width: 100%;
-    min-width: 462px;
+    min-width: 400px;
     position: fixed;
     top: 0px;
     background: #fff;

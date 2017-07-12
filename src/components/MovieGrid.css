@@ -3,7 +3,7 @@
     top: 105px;
     padding: 5px 10px;
     width: 100%;
-    min-width: 462px;
+    min-width: 400px;
     margin: 10px auto;
     display: flex;
     justify-content: center;
@@ -17,15 +17,19 @@
     width: 24%;
     margin: 5px;
     min-width: 220px;
+}
 
+@media screen and (max-width: 766px) {
+    .gridwrapper {
+        top: 301px;
+    }
 }
 
 @media screen and (max-width: 560px) {
     .gridcontent {
         width: 100%;
     }
-    .gridwrapper{
-        position: relative;
-        top: 161px;
+    .gridwrapper {
+        top: 361px;
     }
 }
