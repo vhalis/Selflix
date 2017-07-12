@@ -33,7 +33,7 @@ export default class SortBy extends React.Component {
 
         return (
             <div className="sortmenu">
-                <Menu color='teal' stackable fluid>
+                <Menu color='teal' fluid size='small'>
                         <Menu.Item header>SORT BY</Menu.Item>
                         <Menu.Item
                             name='title'

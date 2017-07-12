@@ -5,6 +5,8 @@ import AddNewTile from './AddNewTile.jsx';
 import MovieTile from './MovieTile.jsx';
 import MovieModal from './MovieModal.jsx';
 
+import { Message } from 'semantic-ui-react';
+
 import './MovieGrid.css';
 
 
@@ -12,6 +14,7 @@ export default class MovieGrid extends React.Component {
 
     static propTypes = {
         onAddNewMovieClick: PropTypes.func.isRequired,
+        isSearching: PropTypes.bool,
 
         movies: PropTypes.arrayOf(PropTypes.shape({
             movieActors: PropTypes.arrayOf(PropTypes.string),
@@ -21,10 +24,12 @@ export default class MovieGrid extends React.Component {
             movieReleaseDate: PropTypes.string,
             movieTitle: PropTypes.string.isRequired,
         })), 
+
     }
 
     static defaultProps = {
         movies: [],
+        isSearching: false,
     }
 
     state = {
@@ -68,16 +73,30 @@ export default class MovieGrid extends React.Component {
 
         });
 
-        movieTiles.unshift(
-            <div key="addnew" className="gridcontent">
-                <AddNewTile
-                    onClick={this.props.onAddNewMovieClick} />
+        if (!this.props.isSearching) {
+            movieTiles.unshift(
+                <div key="addnew" className="gridcontent">
+                    <AddNewTile
+                        onClick={this.props.onAddNewMovieClick} />
+                </div>
+            );
+        }
+
+        const noMoviesMsg = ( 
+            <div>
+                <Message 
+                    content='No movies found...' 
+                    icon='search' 
+                    size='massive' 
+                    compact />
             </div>
         );
 
         return (
             <div className="gridwrapper">
-                {movieTiles}
+                {movieTiles.length > 0
+                 ? movieTiles
+                 : noMoviesMsg}
             </div>
         );
     }

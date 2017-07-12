@@ -16,13 +16,7 @@
 .gridcontent {
     width: 24%;
     margin: 5px;
-    min-width: 220px;
-}
-
-@media screen and (max-width: 766px) {
-    .gridwrapper {
-        top: 301px;
-    }
+    min-width: 200px;
 }
 
 @media screen and (max-width: 560px) {
@@ -30,6 +24,6 @@
         width: 100%;
     }
     .gridwrapper {
-        top: 361px;
+        top: 161px;
     }
 }

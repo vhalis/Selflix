@@ -227,8 +227,9 @@ export default class App extends React.Component {
     } = this.state;
     var { movieList } = this.state;
     const reverse = sortOrder === 'ascending' ? false : true;
+    const isSearching = searchText !== "";
 
-    if (searchText !== "") {
+    if (isSearching) {
       movieList = movieList.filter(
         this.getSearchMovieFunction(searchField, searchText)
       );
@@ -252,7 +253,8 @@ export default class App extends React.Component {
         </div>
         <MovieGrid
           onAddNewMovieClick={this.doModalOpen}
-          movies={movieList} />
+          movies={movieList} 
+          isSearching={isSearching} />
         <AddNewButton onClick={this.doModalOpen} />
         <AddMovieModal
           createNewMovie={this.createNewMovie}
